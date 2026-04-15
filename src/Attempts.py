@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import Any
 
 
 class Attempts:
@@ -20,7 +19,7 @@ class Attempts:
         self._total_count = self._from_zero_count + self._runs_count
 
     def __str__(self) -> str:
-        return f"AttemptHelper object for level: {self._name if self._name is not None else "No name given"}"
+        return f"AttemptHelper object {f"for level {self._name}" if self._name is not None else f"with {self._total_count} attempts"}"
 
     @property
     def name(self) -> str:
@@ -35,7 +34,7 @@ class Attempts:
         return self._runs
 
     @property
-    def total(self) -> dict[Any, int]:
+    def total(self) -> dict[int | tuple, int]:
         return self._total
 
     @property
