@@ -1,29 +1,28 @@
+from functools import cached_property
 from pathlib import Path
 
 
 class Attempts:
     def __init__(self, level_name=None) -> None:
         self._curr_dir = Path.home() / "IdeaProjects" / "GeometryDash" / "src"
-        self._name = level_name
+        self.name = level_name
 
         # Helper functions insert data into from_zero and runs
         self._from_zero = {}
         self.parse_from_zero()
         self._runs = {}
         self.parse_runs()
-        self._total = self._from_zero | self._runs
-
-        # These variables cache the amount of attempts in from_zero, runs, and the two combined
-        self._from_zero_count = sum(self._from_zero.values())
-        self._runs_count = sum(self._runs.values())
-        self._total_count = self._from_zero_count + self._runs_count
 
     def __str__(self) -> str:
-        return f"AttemptHelper object {f"for level {self._name}" if self._name is not None else f"with {self._total_count} attempts"}"
+        return f"AttemptHelper object {f"for level {self.name}" if self.name is not None else f"with {self.total_count} attempts"}"
 
     @property
     def name(self) -> str:
-        return self._name
+        return self.name
+
+    @name.setter
+    def name(self, new_name) -> None:
+        self.name_ = new_name
 
     @property
     def from_zero(self) -> dict[int, int]:
@@ -33,21 +32,21 @@ class Attempts:
     def runs(self) -> dict[tuple, int]:
         return self._runs
 
-    @property
+    @cached_property
     def total(self) -> dict[int | tuple, int]:
-        return self._total
+        return self._from_zero | self.runs
 
-    @property
+    @cached_property
     def from_zero_count(self) -> int:
-        return self._from_zero_count
+        return sum(self._from_zero.values())
 
-    @property
+    @cached_property
     def runs_count(self) -> int:
-        return self._runs_count
+        return sum(self._runs.values())
 
-    @property
+    @cached_property
     def total_count(self) -> int:
-        return self._total_count
+        return self.from_zero_count + self.runs_count
 
 
     def parse_from_zero(self) -> None:

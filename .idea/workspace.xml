@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="095df88f-e6dd-4d9d-9c37-40d32de1fbe6" name="Changes" comment="Chokepoints.py inserting and graphing data">
+    <list default="true" id="095df88f-e6dd-4d9d-9c37-40d32de1fbe6" name="Changes" comment="Chokepoints.py logic completely reworked. Weighted average pass rate calculated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Attempts.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attempts.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Chokepoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chokepoints.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +20,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -182,8 +184,27 @@
       <option name="project" value="LOCAL" />
       <updated>1776301173661</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Chokepoints.py logic completely reworked. Weighted average pass rate calculated">
+      <option name="closed" value="true" />
+      <created>1776466704718</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1776466704718</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Attempts.py documentation" />
@@ -192,6 +213,7 @@
     <MESSAGE value="Removed unused import statements and minor edits to documentation/functionality" />
     <MESSAGE value="Created Chokepoints.py to find chokepoints using logarithmic regression and standard deviation" />
     <MESSAGE value="Chokepoints.py inserting and graphing data" />
-    <option name="LAST_COMMIT_MESSAGE" value="Chokepoints.py inserting and graphing data" />
+    <MESSAGE value="Chokepoints.py logic completely reworked. Weighted average pass rate calculated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chokepoints.py logic completely reworked. Weighted average pass rate calculated" />
   </component>
 </project>
