@@ -1,5 +1,4 @@
-import numpy as np
-import matplotlib.pyplot as plt
+from statsmodels.stats.weightstats import DescrStatsW
 
 
 class Chokepoints:
@@ -21,7 +20,7 @@ class Chokepoints:
             reached = passed
 
     @property
-    def pass_rates(self) -> dict[int, tuple]:
+    def pass_rates(self) -> dict[int, int]:
         return self._pass_rates
 
     @property
