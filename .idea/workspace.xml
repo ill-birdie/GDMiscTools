@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="095df88f-e6dd-4d9d-9c37-40d32de1fbe6" name="Changes" comment="Merged the initialization of self._from_zero and self._runs into one method" />
+    <list default="true" id="095df88f-e6dd-4d9d-9c37-40d32de1fbe6" name="Changes" comment="Emptied attempt files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Chokepoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chokepoints.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FromZero.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/FromZero.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Runs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Runs.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -204,7 +209,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776988586051</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Emptied attempt files">
+      <option name="closed" value="true" />
+      <created>1776989216645</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1776989216645</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -227,6 +240,7 @@
     <MESSAGE value="Chokepoints.py inserting and graphing data" />
     <MESSAGE value="Chokepoints.py logic completely reworked. Weighted average pass rate calculated" />
     <MESSAGE value="Merged the initialization of self._from_zero and self._runs into one method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merged the initialization of self._from_zero and self._runs into one method" />
+    <MESSAGE value="Emptied attempt files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Emptied attempt files" />
   </component>
 </project>

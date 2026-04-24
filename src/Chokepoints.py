@@ -1,28 +1,42 @@
-from statsmodels.stats.weightstats import DescrStatsW
-
+import numpy as np
+import matplotlib.pyplot as plt
 
 class Chokepoints:
     def __init__(self, attempts: dict[int, int]) -> None:
-        # Avoids division by zero when calculating for the weight of each percent
-        if not attempts:
-            raise TypeError("No attempts listed")
+        # Avoids division by zero when calculating the log regression
+        if 0 in attempts:
+            attempts.pop(0)
 
-        self._pass_rates = {}
-        self._avg_pass_rate = 0.0
-        death_total = sum(attempts.values())
-        reached = death_total
-        for percent, deaths in attempts.items():
-            passed = reached - deaths
-            pass_rate = (passed / reached) * 100
-            weight = deaths / death_total
-            self._avg_pass_rate += pass_rate*weight
-            self._pass_rates[percent] = pass_rate
-            reached = passed
+        # TODO: all x values from 1 to 100 should be included, not just the one where deaths took place
+        try:
+            self._x, self._y = np.array(list(attempts.keys())), np.array(list(attempts.values()))
+            fit = np.polyfit(np.log(self._x), self._y, 1)
+        except ValueError:
+            raise TypeError("Attempt data must be purely runs from zero. Maybe the wrong data was inserted?")
+        except TypeError:
+            raise TypeError("Attempt data must contain at least one death entry.")
 
-    @property
-    def pass_rates(self) -> dict[int, int]:
-        return self._pass_rates
+        # Regression equation is a*ln(x) + b
+        self._a_fit, self._b_fit = fit[1], fit[0]
 
     @property
-    def avg_pass_rate(self) -> float:
-        return self._avg_pass_rate
+    def fit(self) -> str:
+        return f"{round(self._a_fit, 3)} + {round(self._b_fit, 3)}ln(x)"
+
+    @property
+    def x(self):
+        return self._x
+
+    @property
+    def y(self):
+        return self._y
+
+    def expected(self, percent) -> float:
+        return self._a_fit + self._b_fit*np.log(percent)
+
+    def graph(self) -> None:
+        plt.plot(self._x, self._y)
+        expected_x = np.arange(1, 101, 1)
+        expected_y = [max(0.0, self.expected(n)) for n in np.arange(1, 101, 1)]
+        plt.plot(expected_x, expected_y)
+        plt.show()
