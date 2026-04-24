@@ -3,18 +3,15 @@ import matplotlib.pyplot as plt
 
 class Chokepoints:
     def __init__(self, attempts: dict[int, int]) -> None:
-        # Avoids division by zero when calculating the log regression
-        if 0 in attempts:
-            attempts.pop(0)
+        death_percents = {percent: 0 for percent in range(1, 101)}
+        death_percents.update(attempts)
 
-        # TODO: all x values from 1 to 100 should be included, not just the one where deaths took place
-        try:
-            self._x, self._y = np.array(list(attempts.keys())), np.array(list(attempts.values()))
-            fit = np.polyfit(np.log(self._x), self._y, 1)
-        except ValueError:
-            raise TypeError("Attempt data must be purely runs from zero. Maybe the wrong data was inserted?")
-        except TypeError:
-            raise TypeError("Attempt data must contain at least one death entry.")
+        # Avoids division-by-zero errors when calculating the regression equation
+        if 0 in death_percents:
+            death_percents.pop(0)
+
+        self._x, self._y = np.arange(1, 101, 1), np.array(list(death_percents.values()))
+        fit = np.polyfit(np.log(self._x), self._y, deg=1)
 
         # Regression equation is a*ln(x) + b
         self._a_fit, self._b_fit = fit[1], fit[0]
